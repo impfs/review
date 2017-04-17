@@ -1,9 +1,9 @@
 <h1> Review of Hamamastu C128880 Microspec Module </h1>
 
 Craig Versek (Northeastern University; EIO) </br>
-Parker Woodworth (Food+Future) </br>
+Parker Woodworth (Food+Future; Poly) </br>
 Alex Meckes (Wyss Institute) </br>
-Don Blair (Food+Future; IMFS)
+Don Blair (Food+Future; Illuminate; IMPFS)
 
 # Summary
 

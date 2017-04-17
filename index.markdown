@@ -7,9 +7,11 @@ Don Blair (Food+Future)
 
 # Summary
 
-The C12880MA has is an easy-to-use, highly portable sensor module, useful in the range of x to y nm.  We believe that the currently available datasheet for the C12880MA gives the impression that the device requires more sophisticated hardware than is in fact needed in order to effectively operate the device in a wide range of applications; two independent engineering teams initially avoided using it because it seems to require a protocol speed only available on custom FPGA chips.  Below, we demonstrate a basic application of the C12880MA that uses a $8 hobby microcontroller to effectively produce transmission spectra.  We recommend that the language in the datasheet and advertising be modified to reflect how truly accessible the module is, thus making the module immediate more appealing to a wider audience. 
+The C12880MA has is an easy-to-use, highly portable sensor module, useful in the range of x to y nm.  We believe that the currently available datasheet for the C12880MA gives the impression that the device requires more sophisticated hardware than is in fact needed in order to effectively operate the device in a wide range of applications; two independent engineering teams initially avoided using it because it seems to require a protocol speed only available on custom FPGA chips.
 
-# First impression: perhaps we're too slow?
+Below, we demonstrate a basic application of the C12880MA that uses a $8 hobby microcontroller to effectively produce transmission spectra.  We recommend that the language in the datasheet and advertising be modified to reflect how truly accessible the module is, thus making the module immediate more appealing to a wider audience. 
+
+# First impression: is our hardware too slow?
 
 In our evaluation of the C12880MA module, we relied on the datasheet available [here](http://www.hamamatsu.com/resources/pdf/ssd/c12880ma_kacc1226e.pdf).  
 

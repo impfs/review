@@ -1,3 +1,68 @@
-<html>
-<a href="hamamatsu.html">hamamatsu</a>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="pandoc.css" type="text/css" />
+</head>
+<body>
+<h1> 
+Review of Hamamastu C128880 Microspec Module
+</h1>
+
+<p>Craig Versek (Northeastern University; EIO) </br> Parker Woodworth (Food+Future) </br> Alex Meckes (Wyss Institute) </br> Don Blair (Food+Future; IMFS)</p>
+<h1 id="summary">Summary</h1>
+<p>The C12880MA has is an easy-to-use, highly portable sensor module, useful in the range of x to y nm. We believe that the currently available datasheet for the C12880MA gives the impression that the device requires more sophisticated hardware than is in fact needed in order to effectively operate the device in a wide range of applications; two independent engineering teams initially avoided using it because it seems to require a protocol speed only available on custom FPGA chips. Below, we demonstrate a basic application of the C12880MA that uses a $8 hobby microcontroller to effectively produce transmission spectra. We recommend that the language in the datasheet and advertising be modified to reflect how truly accessible the module is, thus making the module immediate more appealing to a wider audience.</p>
+<h1 id="first-impression-were-too-slow">First impression: we're too slow?</h1>
+<p>In our evaluation of the C12880MA module, we relied on the datasheet available <a href="http://www.hamamatsu.com/resources/pdf/ssd/c12880ma_kacc1226e.pdf">here</a>.</p>
+<p>The timing chart on page 7 of the C12880MA datasheet strongly suggests that a regular clock pulse is needed at all times in order to operate the device.</p>
+<p><img src="pics/timing.png"></p>
+<p>Also: on the top of page 8 of the dataset, the example given uses the fastest integration time possible on the device. For those unfamiliar with the operation of spectroscopy modules (as we were), this exmaple may give the (false) impression that such timings are necessary in order to operate the device in all cases.</p>
+<p>The bottom of page 8 on the datasheet does indicate that the device the integration time is equal to the high period of the start pulse plus 48 cycles of clock pulses -- which is a clue that the integration time is capable of being varied, and that slower integration times, accessible by less powerful hardware, are possible. In retrospect, this was a strong (but insufficiently clear) clue that the module can be controlled by lower-power devices.</p>
+<p>We eventually discovered <a href="https://github.com/groupgets/c12880ma">example code</a>, provided by <a href="http://groupgets.com">GroupGets</a>, for operating the C12880MA using the Arduino microcontroller. After successfully running this code, we realized that we had misinterpreted the datasheet: the C12880MA does, in fact, allow for slower microcontrollers to capture spectra, so long as faster integration times are not required; and a constant clock pulse is not necessary. After an initial clocking phase that sets the integration time, the user can then use an ADC to measure the individual pixel values at whatever rate is convenient.</p>
+<p>For many applications, slower integration times may be sufficient; we believe that updating the language in the datasheet to explain the protocol more fully -- perhaps including an additional example that uses slower integration times, appropriate for lower-power microcontrollers -- widen the potential audience for the sensor module.</p>
+<p>After discovering, and studying, this example, we were then able to write our own C and Python code (described below) to control the device.</p>
+<h1 id="low-cost-low-power-microcontroller-setup-for-the-c12880ma">Low-cost, low-power microcontroller setup for the C12880MA</h1>
+<p>Here we present code and hardware for interfacing with the C12880MA using low-cost microcontrollers. The code we developed is compatible with a wide range of microcontrollers that utilize the <a href="http://arduino.cc">Arduino platform</a>. Our setup uses the <a href="https://www.adafruit.com/feather">Adafruit Feather</a>:</p>
+<p><img src="pics/feather.png"></p>
+<p>but our code is also compatible with:</p>
+<ul>
+<li><a href="http://adafruit.com/feather">Adafruit Feather</a> ($15) (tested)</li>
+<li><a href="https://www.sparkfun.com/products/11113">Arduino Pro Mini</a> ($10) (tested)</li>
+<li>The <a href="https://www.adafruit.com/product/2756?gclid=CjwKEAjwrMzHBRDW3saA88aT80MSJACbvo1TqquoNXciYPJN9wzcpkCm3hBvtnrP2_X41iHtpxki0BoCY4Hw_wcB">Teensy 3.2</a> ($20) (tested)</li>
+<li>Other microntrollers compatible with the <a href="https://www.arduino.cc/en/main/software">Arduino IDE</a> (untested)</li>
+</ul>
+<h2 id="wiring-diagram.">Wiring diagram.</h2>
+<p>[pic]</p>
+<h2 id="serial-control-of-c12880ma-via-python-jupyter-notebook-analysis.">Serial control of C12880MA via Python + Jupyter notebook analysis.</h2>
+<p><a href="https://github.com/open-eio/arduino-microspec">Custom firmware</a>.</p>
+<p>Arduino code:</p>
+<p><a href="https://github.com/open-eio/arduino-microspec/blob/master/microspec/c12880.cpp">c12880.cpp</a></p>
+<p><a href="https://github.com/open-eio/arduino-microspec/blob/master/microspec/c12880.h">c12880.h</a></p>
+<p><a href="https://github.com/open-eio/arduino-microspec/blob/master/microspec/microspec.ino">microscpec.ino</a></p>
+<p>Python code to interact with the C code:</p>
+<p><a href="https://github.com/open-eio/arduino-microspec/blob/master/microspec/test.py">test.py</a></p>
+<p><a href="https://github.com/open-eio/arduino-microspec/blob/master/notebooks/jup_spec.ipynb">Simple test with florescent bulb (Jupyter notebook)</a></p>
+<p><a href="https://github.com/open-eio/arduino-microspec/blob/master/notebooks/test.ipynb">Varying Integration time test</a></p>
+<h3 id="example-using-jupyter-to-plot-the-spectrum-of-a-florescent-bulb">Example using Jupyter to plot the spectrum of a florescent bulb:</h3>
+<p><img src="pics/jup_setup.png"></p>
+<p><img src="pics/jupyter.png"></p>
+<h3 id="example-testing-integration-times">Example testing integration times:</h3>
+<p><img src="pics/jupyter_integrations.png"></p>
+<h1 id="d-printed-transmission-spectroscopy-enclosure-for-the-c12880ma">3D Printed Transmission Spectroscopy Enclosure for the C12880MA</h1>
+<p><a href="https://github.com/food-future/spectrometer-enclosure-demo">STL files for enclosure</a></p>
+<p><img src="pics/onshape.png"></p>
+<p><a href="https://cad.onshape.com/documents/739ac82547d2fdc8c1c24add/w/56cff6a6baf330ba819338be/e/9e36cc1a7c1a2250e4320c5f">Onshape file</a></p>
+<p><img src="pics/body.png" width=300></p>
+<p><img src="pics/lid.png" width=300></p>
+<p><img src="pics/3d.png" width=300></p>
+<p><a href="https://www.grainger.com/product/39A485?gclid=Cj0KEQjwiI3HBRDv0q_qhqXZ-N4BEiQAOTiCHvnqqGzGo3s8TXBJ5jYMR4ZyNdZsh2NQYnX4sIPMDyQaAnwu8P8HAQ&amp;cm_mmc=PPC:GOOGLEPLAA-_-Lighting-_-Flashlights-_-39A485&amp;AL!2966!3!166587837076!!!g!82128952917!&amp;s_kwcid=AL!2966!3!166587837076!!!g!82128952917!&amp;ef_id=WHJ-xAAAAIe7WhKm:20170404232517:s">Xenon bulb</a></p>
+<p><img src="pics/bulb.png"></p>
+<h1 id="basic-applications">Basic Applications</h1>
+<p><img src="pics/beer.png"></p>
+<p><img src="pics/oils1.png" width=550></p>
+</body>
 </html>

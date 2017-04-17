@@ -3,7 +3,7 @@
 Craig Versek (Northeastern University; EIO) </br>
 Parker Woodworth (Food+Future; Poly) </br>
 Alex Meckes (Wyss Institute) </br>
-Don Blair (Food+Future; Illuminate; IMPFS)
+Don Blair (Food+Future; Illuminate)
 
 # Summary
 

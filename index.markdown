@@ -100,7 +100,7 @@ We printed and assembled the 3D enclosure, including the protoboard with the C12
 
 <img src="pics/3d.png" width=300>
 
-The enclsoure also contains an inexpensive [Xenon bulb](
+The enclsoure also contains an inexpensive [Xenon incandescent bulb](
 https://www.grainger.com/product/39A485?gclid=Cj0KEQjwiI3HBRDv0q_qhqXZ-N4BEiQAOTiCHvnqqGzGo3s8TXBJ5jYMR4ZyNdZsh2NQYnX4sIPMDyQaAnwu8P8HAQ&cm_mmc=PPC:GOOGLEPLAA-_-Lighting-_-Flashlights-_-39A485&AL!2966!3!166587837076!!!g!82128952917!&s_kwcid=AL!2966!3!166587837076!!!g!82128952917!&ef_id=WHJ-xAAAAIe7WhKm:20170404232517:s) as a light source:
 
 <img src="pics/bulb.png">

@@ -29,10 +29,11 @@ where:
 
 The following spectrometers were used:
 
-- 'FLAME_N':  An Ocean Optics Flame NIR spectrometer.
-- 'FLAME_S':  The Ocean Optics Flame VIS-NIR spectrometer.
-- 'NIRQUEST': An Ocean Optics NIR Quest spectrometer.
 - 'QEPRO': An Ocean Optics QEPRO spectrometer.
+- 'FLAME_S':  The Ocean Optics Flame VIS-NIR spectrometer.
+- 'FLAME_N':  An Ocean Optics Flame NIR spectrometer.
+- 'NIRQUEST': An Ocean Optics NIR Quest spectrometer.
+
 
 ## Analytes
 
@@ -48,10 +49,11 @@ The analytes for each spectrometer were:
 
 ## Plots
 
-<img src="pics/FLAME_N.png">
-<img src="pics/FLAME_S.png">
-<img src="pics/NIRQUEST.png">
 <img src="pics/QEPRO.png">
+<img src="pics/FLAME_S.png">
+<img src="pics/FLAME_N.png">
+<img src="pics/NIRQUEST.png">
+
 
 ## Comments / Questions
 

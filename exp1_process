@@ -1,0 +1,2 @@
+#!/bin/bash
+pandoc -s exp1.markdown --mathjax -c pandoc.css -o exp1.html

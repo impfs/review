@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="pandoc.css" type="text/css" />
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</head>
+<body>
+<h1 id="experiment-1----4252017">Experiment #1 -- 4/25/2017</h1>
+<p>Operators:</p>
+<ul>
+<li>Ansh Das</li>
+<li>Don Blair</li>
+</ul>
+<h2 id="overview">Overview</h2>
+<p>Below is a very rough first pass on using the Ocean Optics superbench spectrometers to assess olive oil using a 'transflectance' setup with titer plates, in which the superbench gun was held at a fixed distance above the titer plates.</p>
+<h2 id="procedure">Procedure</h2>
+<p>We used a superbench gun aimed directly down at a titer plate, with individual olive oil samples placed in the titer plate wells.</p>
+<p>There was a one inch spacing between superbench gun and the top surface of the plate -- correspondeding to the gun height required to fully illuminate the entire titer plate area with the light beam emitted by the gun.</p>
+<p>We calculated the reflectance of various olive oils for various spectrometers as:</p>
+<p><span class="math">\[reflectance = \frac{sample-dark}{reference-dark}\]</span></p>
+<p>where:</p>
+<ul>
+<li>'dark' involved measuring an empty titer plate well, with no light source on. The light input fiber on the gun was not otherwise covered.</li>
+<li>'reference' involved measuring an empty titer plate well, with the light source on.</li>
+<li>'sample' involved measuring the titer plate filled with analyte.</li>
+</ul>
+<h2 id="instruments">Instruments</h2>
+<p>The following spectrometers were used:</p>
+<ul>
+<li>'FLAME_N': An Ocean Optics Flame NIR spectrometer.</li>
+<li>'FLAME_S': The Ocean Optics Flame VIS-NIR spectrometer.</li>
+<li>'NIRQUEST': An Ocean Optics NIR Quest spectrometer.</li>
+<li>'QEPRO': An Ocean Optics QEPRO spectrometer.</li>
+</ul>
+<h2 id="analytes">Analytes</h2>
+<p>The analytes for each spectrometer were:</p>
+<ul>
+<li>'BARRIO_OO' -- Phillipo Barrio Olive Oil</li>
+<li>'UC_DAVIS_EVOO' -- UC Davis Extra Virgin Olive Oil</li>
+<li>'WF_GREEK' -- Whole Foods Greek Extra Virgin Olive Oil</li>
+<li>'365_EVOO' -- 365 Brand Extra Virgin Olive Oil</li>
+<li>'spain' -- Stop &amp; Shop Extra Virgin Olive Oil (labeled origin: Spain)</li>
+<li>'spain_argentina' -- Stop &amp; Shope Extra Virgin Olive Oil (labeled origin: Spain, Argentina)</li>
+<li>'canola' -- Canola oil</li>
+</ul>
+<h2 id="plots">Plots</h2>
+<p><img src="pics/FLAME_N.png"> <img src="pics/FLAME_S.png"> <img src="pics/NIRQUEST.png"> <img src="pics/QEPRO.png"></p>
+<h2 id="comments-questions">Comments / Questions</h2>
+<ul>
+<li>Reflectance values greater than one may indicate that our choice of reference and dark standards should be improved (and indeed they should in any case). A next run can use a calibration standard for 'reference', and cover the gun fiber input for the 'dark' spectrum.</li>
+<li>No effort was yet made to assess photometric or wavelength linearity on any of the spectrometers.</li>
+</ul>
+</body>
+</html>
